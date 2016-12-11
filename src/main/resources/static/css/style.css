@@ -1,0 +1,93 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin:0px;
+    padding: 0px;
+}
+
+#logo img{
+    width: 1200px;
+    height: 450px;
+    display: block;
+    margin:auto;
+}
+
+#nav{
+    background: #19870a;
+}
+
+#nav ul{
+    list-style: none;
+    margin: 0;
+}
+
+#nav li{
+    text-align: center;
+    margin: 20px 0;
+    display: inline-block;
+}
+
+#nav a:hover{
+    background: #fff;
+    color: black;
+}
+
+#nav a{
+    font-size: 20px;
+    text-decoration: none;
+    padding: 30px;
+    color: white;
+}
+
+#wrap{
+    width: 1315px;
+    display: block;
+    margin: 0 auto;
+}
+
+#news{
+    background-color: #B6C8EA;
+    margin: 0;
+    width: 1050px;
+    display: inline-block;
+}
+
+#news p{
+    padding: 10px 40px;
+}
+
+#news h1,
+h4{
+    padding: 10px;
+    text-align: center;
+}
+
+#log{
+    width: 250px;
+    margin: 0 0 0 10px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    background: #B6C8EA;
+}
+
+form input{
+    display: block;
+    margin: auto;
+}
+
+form button{
+    margin: 5px;
+}
+
+#footer{
+    background: #19870a;
+    margin-top: -16px;
+
+}
+
+#footer p{
+    padding: 20px;
+}
