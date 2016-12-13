@@ -18,24 +18,24 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@NotNull
-	@Size(min=2, max=30)
+	@NotNull(message="Pole nie może byc puste")
+	@Size(min=2, max=30, message="Imię nie może być krótsze niż 2 znaki i dłóższe niż 30")
 	private String first_name;
 	
-	@NotNull
-	@Size(min=2, max=30)
+	@NotNull(message="Pole nie może byc puste")
+	@Size(min=2, max=30, message="Imię nie może być krótsze niż 2 znaki i dłóższe niż 30")
 	private String last_name;
 	
-	@NotNull
-	@Email
+	@NotNull(message="Pole nie może byc puste")
+	@Email(message="Adres e-mail musi być poprawny")
 	private String email;
 	
-	@NotNull
-    @Size(min=2, max=30)
+	@NotNull(message="Pole nie może byc puste")
+	@Size(min=2, max=30, message="Imię nie może być krótsze niż 2 znaki i dłóższe niż 30")
 	private String password;
 	
 	@NotNull
-    @Size(min=11, max=11)
+    @Size(min=11, max=11, message="Pesel musi składać się z 11 znaków")
 	private String pesel;
 
 	public int getId() {
