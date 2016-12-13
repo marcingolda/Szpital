@@ -96,3 +96,31 @@ form button{
 #footer p{
     padding: 20px;
 }
+
+/*===================sing in=================*/
+.main{
+    width: 90%;
+    margin: auto;
+    background: #B6C8EA;
+    text-align: center;
+}
+
+form{
+    padding: 30px;
+}
+
+input{
+    margin: 0 auto 20px auto;
+}
+
+#settings>h4{
+    font-size: 20px;
+}
+
+h2 {
+	margin-top: 0;
+}
+
+input[type="submit"]{
+	margin-top: 20px;
+}

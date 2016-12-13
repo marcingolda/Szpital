@@ -8,6 +8,7 @@
 			placeholder="Hasło" name="psw" required>
 
 		<button type="submit">Zaloguj</button>
-		<input type="checkbox" checked="checked">Zapamiętaj mnie
+		<input type="checkbox" checked="checked">Zapamiętaj mnie <br/>
 	</form>
+	Nie masz konta? <a href="register">Zarejestruj się</a>
 </div>

@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Email;
+
 @Entity
 @Table(name = "user_table")
 public class User {
@@ -22,6 +24,7 @@ public class User {
 	private String last_name;
 	
 	@NotNull
+	@Email
 	private String email;
 	
 	@NotNull
