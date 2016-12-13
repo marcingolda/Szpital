@@ -9,4 +9,19 @@ public class MainController {
     public String index(){
         return "index";
     }
+    
+    @RequestMapping("/about")
+    public String about(){
+        return "about";
+    }
+    
+    @RequestMapping("/offer")
+    public String offer(){
+        return "offer";
+    }
+    
+    @RequestMapping("/contact")
+    public String contact(){
+        return "contact";
+    }
 }

@@ -47,18 +47,18 @@ body {
     margin: 0 auto;
 }
 
-#news{
+#main{
     background-color: #B6C8EA;
     margin: 0;
     width: 1050px;
     display: inline-block;
 }
 
-#news p{
+#main p{
     padding: 10px 40px;
 }
 
-#news h1,
+#main h1,
 h4{
     padding: 10px;
     text-align: center;

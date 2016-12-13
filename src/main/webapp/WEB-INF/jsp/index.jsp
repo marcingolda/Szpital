@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="general/header.jsp" />
 
-<div id="news">
+<div id="main">
 	<h1>Aktualności</h1>
 	<h4>Aktualność 1</h4>
 	<p>Praesent rutrum et augue vitae vehicula. Vestibulum ante ipsum

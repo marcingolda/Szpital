@@ -14,10 +14,10 @@
 
 	<div id="nav">
 		<ul>
-			<li><a href="#">STRONA GŁÓWNA</a></li>
-			<li><a href="#">O NAS</a></li>
-			<li><a href="#">OFERTA</a></li>
-			<li><a href="#">KONTAKT</a></li>
+			<li><a href="/">STRONA GŁÓWNA</a></li>
+			<li><a href="about">O NAS</a></li>
+			<li><a href="offer">OFERTA</a></li>
+			<li><a href="contact">KONTAKT</a></li>
 		</ul>
 	</div>
 
