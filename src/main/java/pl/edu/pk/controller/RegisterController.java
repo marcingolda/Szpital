@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -30,7 +31,11 @@ public class RegisterController {
     	if (bindingResult.hasErrors()){
     		return "register";
     	}
-    	//ToDo Logika ponowionego hasła
+    	if(!userForm.getPassword().equals(userForm.getPassword2())){
+    		bindingResult.addError(new ObjectError("password","Hasła muszą się zgadzać"));
+    		bindingResult.addError(new ObjectError("password2","Hasła muszą się zgadzać"));
+    		return "register";
+    	}
     	userService.save(userForm.getUser());
         return "index";
     }
