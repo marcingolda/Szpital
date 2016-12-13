@@ -30,6 +30,8 @@ public class RegisterController {
     	if (bindingResult.hasErrors()){
     		return "register";
     	}
+    	//ToDo Logika ponowionego hasła
+    	userService.save(userForm.getUser());
         return "index";
     }
     
