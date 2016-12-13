@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 
@@ -18,9 +19,11 @@ public class User {
 	private int id;
 	
 	@NotNull
+	@Size(min=2, max=30)
 	private String first_name;
 	
 	@NotNull
+	@Size(min=2, max=30)
 	private String last_name;
 	
 	@NotNull
@@ -28,9 +31,12 @@ public class User {
 	private String email;
 	
 	@NotNull
+    @Size(min=2, max=30)
 	private String password;
 	
-	private int pesel;
+	@NotNull
+    @Size(min=11, max=11)
+	private String pesel;
 
 	public int getId() {
 		return id;
@@ -72,11 +78,11 @@ public class User {
 		this.password = password;
 	}
 
-	public int getPesel() {
+	public String getPesel() {
 		return pesel;
 	}
 
-	public void setPesel(int pesel) {
+	public void setPesel(String pesel) {
 		this.pesel = pesel;
 	}
 

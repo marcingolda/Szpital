@@ -19,7 +19,7 @@
          <form:input type="email" path="email" />
          
          <label>Hasło</label>
-         <form:input type="password" path="password1" />
+         <form:input type="password" path="password" />
          
          <label>Powtórz hasło</label>
          <form:input type="password" path="password2" />
