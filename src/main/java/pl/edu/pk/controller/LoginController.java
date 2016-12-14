@@ -24,7 +24,7 @@ public class LoginController {
     			.getAll()
     			.stream()
     			.filter(u -> u.getEmail()
-				.equals(loginForm))
+				.equals(loginForm.getEmail()))
     			.findFirst()
     			.orElse(null);
     	if (user != null && user.getPassword().equals(loginForm.getPassword())){
