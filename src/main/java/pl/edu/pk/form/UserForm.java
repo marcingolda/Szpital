@@ -15,7 +15,7 @@ import pl.edu.pk.bean.User;
 public class UserForm extends User {
 	
     @NotNull
-    @Size(min=2, max=30)
+    @Size(min=2, max=30, message="Hasło nie może być krótsze niż 2 znaki i dłóższe niż 30")
 	private String password2;
     
     public User getUser(){

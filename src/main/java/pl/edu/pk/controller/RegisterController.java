@@ -43,14 +43,14 @@ public class RegisterController {
     	}
     	
     	if(!userForm.getPassword().equals(userForm.getPassword2())){
-    		bindingResult.addError(new ObjectError("password","Hasła muszą się zgadzać"));
-    		bindingResult.addError(new ObjectError("password2","Hasła muszą się zgadzać"));
+    		bindingResult.rejectValue("password", null, "Hasła muszą się zgadzać");
+    		bindingResult.rejectValue("password2", null, "Hasła muszą się zgadzać");
     		return "register";
     	}
     	if (userService.isEmailUnique(userForm.getEmail())) {
     		userService.save(userForm.getUser());
     	} else {
-    		bindingResult.addError(new ObjectError("email","Ten adres e-mail posiada już zarejestrowane konto"));
+    		bindingResult.rejectValue("email", null, "Ten adres e-mail posiada już zarejestrowane konto");
     		return "register";
     	}
         return loginController.login(new LoginForm(userForm.getEmail(), userForm.getPassword()), request, model);

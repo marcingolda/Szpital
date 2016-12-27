@@ -24,16 +24,17 @@ public class User {
 	private String first_name;
 	
 	@NotNull(message="Pole nie może byc puste")
-	@Size(min=2, max=30, message="Imię nie może być krótsze niż 2 znaki i dłóższe niż 30")
+	@Size(min=2, max=30, message="Nazwisko nie może być krótsze niż 2 znaki i dłóższe niż 30")
 	private String last_name;
 	
 	@NotNull(message="Pole nie może byc puste")
+	@Size(min=2, max=30, message="Adres e-mail nie może być krótszy niż 2 znaki i dłóższy niż 30")
 	@Email(message="Adres e-mail musi być poprawny")
 	@Column(unique = true)
 	private String email;
 	
 	@NotNull(message="Pole nie może byc puste")
-	@Size(min=2, max=30, message="Imię nie może być krótsze niż 2 znaki i dłóższe niż 30")
+	@Size(min=2, max=30, message="Hasło nie może być krótsze niż 2 znaki i dłóższe niż 30")
 	private String password;
 	
 	@NotNull

@@ -27,7 +27,7 @@
          
          <label>Powtórz hasło</label>
          <form:input type="password" path="password2" />
-         <form:errors path="password" cssClass="error" />
+         <form:errors path="password2" cssClass="error" />
          
          <label>Numer PESEL</label>
          <form:input type="number" path="pesel" name="pesel" pattern="[0-9]{11}" />
