@@ -10,7 +10,7 @@ import pl.edu.pk.repository.UserRepository;
 import pl.edu.pk.utils.MyUtil;
 
 @Service
-public class UserService implements Crud <User>{
+public class UserService implements Crud <User> {
 	@Autowired
 	UserRepository repository;
 
@@ -34,6 +34,12 @@ public class UserService implements Crud <User>{
 		repository.delete(id);
 	}
 
-
+	public boolean isEmailUnique(String email){
+		return !getAll()
+				.stream()
+				.filter(u -> u.getEmail().equals(email))
+				.findFirst()
+				.isPresent();
+	}
 
 }

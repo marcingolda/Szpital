@@ -1,5 +1,6 @@
 package pl.edu.pk.bean;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,6 +29,7 @@ public class User {
 	
 	@NotNull(message="Pole nie może byc puste")
 	@Email(message="Adres e-mail musi być poprawny")
+	@Column(unique = true)
 	private String email;
 	
 	@NotNull(message="Pole nie może byc puste")

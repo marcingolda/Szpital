@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
+
 import pl.edu.pk.form.LoginForm;
 import pl.edu.pk.form.UserForm;
 import pl.edu.pk.service.UserService;
@@ -39,12 +41,18 @@ public class RegisterController {
     	if (bindingResult.hasErrors()){
     		return "register";
     	}
+    	
     	if(!userForm.getPassword().equals(userForm.getPassword2())){
     		bindingResult.addError(new ObjectError("password","Hasła muszą się zgadzać"));
     		bindingResult.addError(new ObjectError("password2","Hasła muszą się zgadzać"));
     		return "register";
     	}
-    	userService.save(userForm.getUser());
+    	if (userService.isEmailUnique(userForm.getEmail())) {
+    		userService.save(userForm.getUser());
+    	} else {
+    		bindingResult.addError(new ObjectError("email","Ten adres e-mail posiada już zarejestrowane konto"));
+    		return "register";
+    	}
         return loginController.login(new LoginForm(userForm.getEmail(), userForm.getPassword()), request, model);
     }
     
