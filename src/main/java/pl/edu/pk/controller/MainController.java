@@ -8,7 +8,7 @@ import pl.edu.pk.form.LoginForm;
 
 @Controller
 public class MainController {
-    @RequestMapping("/")
+    @RequestMapping({"/", "/index"})
     public String index(Model model){
     	model.addAttribute("loginForm", new LoginForm());
         return "index";
