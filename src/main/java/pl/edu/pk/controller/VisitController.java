@@ -36,7 +36,7 @@ public class VisitController implements InitializingBean{
 	}
 	
     @RequestMapping("/visit")
-    public String about(Model model){
+    public String visit(Model model){
     	List<Visit> visits;
     	if(user.getUserType()== UserType.USER){
     		visits = visitService.getPlannedPatientVisits(user);
