@@ -25,6 +25,7 @@ public class UserForm extends User {
     	user.setPassword(getPassword());
     	user.setEmail(getEmail());
     	user.setPesel(getPesel());
+    	user.setUserType(getUserType());
     	return user;
     }
 	

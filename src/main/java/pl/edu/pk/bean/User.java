@@ -40,6 +40,9 @@ public class User {
 	@NotNull
     @Size(min=11, max=11, message="Pesel musi składać się z 11 znaków")
 	private String pesel;
+	
+	@Column(nullable = false)
+	private UserType userType;
 
 	public int getId() {
 		return id;
@@ -87,6 +90,14 @@ public class User {
 
 	public void setPesel(String pesel) {
 		this.pesel = pesel;
+	}
+
+	public UserType getUserType() {
+		return userType;
+	}
+
+	public void setUserType(UserType userType) {
+		this.userType = userType;
 	}
 
 }

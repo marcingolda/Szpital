@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
+import pl.edu.pk.bean.UserType;
 import pl.edu.pk.form.LoginForm;
 import pl.edu.pk.form.UserForm;
 import pl.edu.pk.service.UserService;
@@ -48,6 +49,7 @@ public class RegisterController {
     		return "register";
     	}
     	if (userService.isEmailUnique(userForm.getEmail())) {
+    		userForm.setUserType(UserType.USER);
     		userService.save(userForm.getUser());
     	} else {
     		bindingResult.rejectValue("email", null, "Ten adres e-mail posiada już zarejestrowane konto");
