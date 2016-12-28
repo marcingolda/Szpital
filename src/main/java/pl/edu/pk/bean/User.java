@@ -100,4 +100,50 @@ public class User {
 		this.userType = userType;
 	}
 
+	@Override
+	public int hashCode() {
+		return user_id;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (first_name == null) {
+			if (other.first_name != null)
+				return false;
+		} else if (!first_name.equals(other.first_name))
+			return false;
+		if (last_name == null) {
+			if (other.last_name != null)
+				return false;
+		} else if (!last_name.equals(other.last_name))
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		if (pesel == null) {
+			if (other.pesel != null)
+				return false;
+		} else if (!pesel.equals(other.pesel))
+			return false;
+		if (userType != other.userType)
+			return false;
+		if (user_id != other.user_id)
+			return false;
+		return true;
+	}
+
 }

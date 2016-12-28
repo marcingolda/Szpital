@@ -7,8 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "visit")
@@ -18,12 +19,15 @@ public class Visit {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@OneToOne
-	@JoinColumn(name = "user_id")
+	@NotNull
+	private String name;
+	
+    @ManyToOne(optional=false)
+    @JoinColumn(name="patient_id", referencedColumnName="user_id")
 	private User patient;
 	
-	@OneToOne
-	@JoinColumn(name = "user_id")
+    @ManyToOne(optional=false)
+    @JoinColumn(name="doctor_id", referencedColumnName="user_id")
 	private User doctor;
 	
 	private String medicalComment;
@@ -36,6 +40,14 @@ public class Visit {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public User getPatient() {
