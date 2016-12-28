@@ -54,4 +54,19 @@ public class VisitService implements Crud <Visit>{
 				.collect(Collectors.toList());
 	}
 
+	public List<Visit> getArchivedPatientVisits(User user){
+		Date now = new Date();
+		return getAll()
+				.stream()
+				.filter(v -> (v.getPatient().equals(user) && (v.getDate().before(now) || !v.isActive())))
+				.collect(Collectors.toList());
+	}
+	
+	public List<Visit> getArchivedDoctorVisits(User user){
+		Date now = new Date();
+		return getAll()
+				.stream()
+				.filter(v -> (v.getDoctor().equals(user) && (v.getDate().before(now) || !v.isActive())))
+				.collect(Collectors.toList());
+	}
 }

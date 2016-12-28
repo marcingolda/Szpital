@@ -48,6 +48,18 @@ public class VisitController implements InitializingBean{
     	model.addAttribute("visits", visits);
         return "visit";
     }
-
-
+    
+    @RequestMapping("/oldvisit")
+    public String oldvisit(Model model){
+    	List<Visit> visits;
+    	if(user.getUserType()== UserType.USER){
+    		visits = visitService.getArchivedPatientVisits(user);
+    	} else if (user.getUserType() == UserType.DOCTOR){
+    		visits = visitService.getArchivedDoctorVisits(user);
+    	} else {
+    		return "error";
+    	}
+    	model.addAttribute("visits", visits);
+        return "visit";
+    }
 }
