@@ -19,7 +19,6 @@ if (user==null){ %>
 <%} else { %>
 	<div id="log">
 		Witaj <%=user.getFirst_name() + " " + user.getLast_name()%>! <br/>
-		Przejdź do ustawień //ToDO <br/>
 		<a href="/logout">Wyloguj się</a><br/>
 	</div>
 <%} %>
