@@ -33,6 +33,8 @@ public class Visit {
 	private String medicalComment;
 	
 	private Date date;
+	
+	private boolean active;
 
 	public int getId() {
 		return id;
@@ -81,6 +83,12 @@ public class Visit {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
-	
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
 }

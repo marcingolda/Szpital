@@ -1,5 +1,6 @@
 package pl.edu.pk.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,12 +38,20 @@ public class VisitService implements Crud <Visit>{
 		repository.delete(id);
 	}
 	
-	public List<Visit> getPatientVisits(User user){
-		return getAll().stream().filter(v -> v.getPatient().equals(user)).collect(Collectors.toList());
+	public List<Visit> getPlannedPatientVisits(User user){
+		Date now = new Date();
+		return getAll()
+				.stream()
+				.filter(v -> (v.getPatient().equals(user) && v.getDate().after(now) && v.isActive()))
+				.collect(Collectors.toList());
 	}
 	
-	public List<Visit> getDoctorVisits(User user){
-		return getAll().stream().filter(v -> v.getDoctor().equals(user)).collect(Collectors.toList());
+	public List<Visit> getPlannedDoctorVisits(User user){
+		Date now = new Date();
+		return getAll()
+				.stream()
+				.filter(v -> (v.getDoctor().equals(user) && v.getDate().after(now) && v.isActive()))
+				.collect(Collectors.toList());
 	}
 
 }

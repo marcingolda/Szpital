@@ -39,9 +39,9 @@ public class VisitController implements InitializingBean{
     public String about(Model model){
     	List<Visit> visits;
     	if(user.getUserType()== UserType.USER){
-    		visits = visitService.getPatientVisits(user);
+    		visits = visitService.getPlannedPatientVisits(user);
     	} else if (user.getUserType() == UserType.DOCTOR){
-    		visits = visitService.getDoctorVisits(user);
+    		visits = visitService.getPlannedDoctorVisits(user);
     	} else {
     		return "error";
     	}
