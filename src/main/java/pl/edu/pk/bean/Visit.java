@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import pl.edu.pk.bean.enums.VisitType;
+
 @Entity
 @Table(name = "visit")
 public class Visit {
@@ -20,7 +22,7 @@ public class Visit {
 	private int id;
 	
 	@NotNull
-	private String name;
+	private VisitType visitType;
 	
     @ManyToOne(optional=false)
     @JoinColumn(name="patient_id", referencedColumnName="user_id")
@@ -44,12 +46,12 @@ public class Visit {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public VisitType getVisitType() {
+		return visitType;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setVisitType(VisitType visitType) {
+		this.visitType = visitType;
 	}
 
 	public User getPatient() {
