@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.WebApplicationContext;
 
 import pl.edu.pk.bean.User;
-import pl.edu.pk.bean.UserType;
 import pl.edu.pk.bean.Visit;
+import pl.edu.pk.bean.enums.UserType;
 import pl.edu.pk.service.VisitService;
 import pl.edu.pk.utils.SessionUtil;
 

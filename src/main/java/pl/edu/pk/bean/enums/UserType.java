@@ -1,4 +1,4 @@
-package pl.edu.pk.bean;
+package pl.edu.pk.bean.enums;
 
 public enum UserType {
 	USER,
