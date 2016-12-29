@@ -46,6 +46,7 @@ public class VisitController implements InitializingBean{
     		return "error";
     	}
     	model.addAttribute("visits", visits);
+    	model.addAttribute("title", "Zaplanowane wizyty");
         return "visit";
     }
     
@@ -60,6 +61,7 @@ public class VisitController implements InitializingBean{
     		return "error";
     	}
     	model.addAttribute("visits", visits);
+    	model.addAttribute("title", "Archiwum wizyt");
         return "visit";
     }
 }
