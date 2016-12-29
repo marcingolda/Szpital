@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page import="pl.edu.pk.bean.User" %>
-<%@ page import="pl.edu.pk.bean.UserType" %>
+<%@ page import="pl.edu.pk.bean.enums.UserType" %>
 
 <%User user = (User) session.getAttribute("user");
 if (user==null){ %>
