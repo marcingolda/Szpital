@@ -1,11 +1,13 @@
 package pl.edu.pk.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pl.edu.pk.bean.Room;
+import pl.edu.pk.bean.enums.VisitType;
 import pl.edu.pk.repository.RoomRepository;
 import pl.edu.pk.utils.MyUtil;
 
@@ -32,6 +34,12 @@ public class RoomService implements Crud<Room> {
 	@Override
 	public void delete(int id) {
 		repository.delete(id);
+	}
+	
+	public List<Room> getAllByType(VisitType visitType){
+		return getAll().stream()
+				.filter(r -> r.getRoomType()==visitType)
+				.collect(Collectors.toList());
 	}
 
 }

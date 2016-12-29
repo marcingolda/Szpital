@@ -1,11 +1,14 @@
 package pl.edu.pk.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pl.edu.pk.bean.User;
+import pl.edu.pk.bean.enums.UserType;
+import pl.edu.pk.bean.enums.VisitType;
 import pl.edu.pk.repository.UserRepository;
 import pl.edu.pk.utils.MyUtil;
 
@@ -41,5 +44,26 @@ public class UserService implements Crud <User> {
 				.findFirst()
 				.isPresent();
 	}
-
+	
+	public List<User> getAllDoctors() {
+		List<User> users = getAll();
+		List<User> doctors = new ArrayList<>();
+		for(User user : users){
+			if (user.getUserType().equals(UserType.DOCTOR)){
+				doctors.add(user);
+			}
+		}
+		return doctors;
+	}
+	
+	public List<User> getAllDoctorsByVisitType(VisitType visitType){
+		List<User> allDoctors = getAllDoctors();
+		List<User> specialists = new ArrayList<>();
+		for (User doctor : allDoctors){
+			if (doctor.getSpecialisation().equals(visitType)){
+				specialists.add(doctor);
+			}
+		}
+		return specialists;
+	}
 }

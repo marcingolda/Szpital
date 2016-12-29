@@ -106,6 +106,14 @@ public class User {
 		this.userType = userType;
 	}
 
+	public VisitType getSpecialisation() {
+		return specialisation;
+	}
+
+	public void setSpecialisation(VisitType specialisation) {
+		this.specialisation = specialisation;
+	}
+
 	@Override
 	public int hashCode() {
 		return user_id;

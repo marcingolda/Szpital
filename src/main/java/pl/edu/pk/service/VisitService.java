@@ -1,6 +1,6 @@
 package pl.edu.pk.service;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,34 +39,34 @@ public class VisitService implements Crud <Visit>{
 	}
 	
 	public List<Visit> getPlannedPatientVisits(User user){
-		Date now = new Date();
+		LocalDateTime now = LocalDateTime.now();
 		return getAll()
 				.stream()
-				.filter(v -> (v.getPatient().equals(user) && v.getDateAsDate().after(now) && v.isActive()))
+				.filter(v -> (v.getPatient().equals(user) && v.getDateAsDate().isAfter(now) && v.isActive()))
 				.collect(Collectors.toList());
 	}
 	
 	public List<Visit> getPlannedDoctorVisits(User user){
-		Date now = new Date();
+		LocalDateTime now = LocalDateTime.now();
 		return getAll()
 				.stream()
-				.filter(v -> (v.getDoctor().equals(user) && v.getDateAsDate().after(now) && v.isActive()))
+				.filter(v -> (v.getDoctor().equals(user) && v.getDateAsDate().isAfter(now) && v.isActive()))
 				.collect(Collectors.toList());
 	}
 
 	public List<Visit> getArchivedPatientVisits(User user){
-		Date now = new Date();
+		LocalDateTime now = LocalDateTime.now();
 		return getAll()
 				.stream()
-				.filter(v -> (v.getPatient().equals(user) && (v.getDateAsDate().before(now) || !v.isActive())))
+				.filter(v -> (v.getPatient().equals(user) && (v.getDateAsDate().isBefore(now) || !v.isActive())))
 				.collect(Collectors.toList());
 	}
 	
 	public List<Visit> getArchivedDoctorVisits(User user){
-		Date now = new Date();
+		LocalDateTime now = LocalDateTime.now();
 		return getAll()
 				.stream()
-				.filter(v -> (v.getDoctor().equals(user) && (v.getDateAsDate().before(now) || !v.isActive())))
+				.filter(v -> (v.getDoctor().equals(user) && (v.getDateAsDate().isBefore(now) || !v.isActive())))
 				.collect(Collectors.toList());
 	}
 }

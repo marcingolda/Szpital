@@ -1,7 +1,7 @@
 package pl.edu.pk.bean;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,7 +35,7 @@ public class Visit {
 	
 	private String medicalComment;
 	
-	private Date date;
+	private LocalDateTime date;
 	
     @ManyToOne
     @JoinColumn(name="room_id", referencedColumnName="roomNumber")
@@ -83,7 +83,7 @@ public class Visit {
 		this.medicalComment = medicalComment;
 	}
 
-	public Date getDateAsDate() {
+	public LocalDateTime getDateAsDate() {
 		return date;
 	}
 	
@@ -92,7 +92,7 @@ public class Visit {
 		return dt.format(date);
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
 	

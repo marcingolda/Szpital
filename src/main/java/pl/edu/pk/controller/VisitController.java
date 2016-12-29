@@ -19,6 +19,7 @@ import pl.edu.pk.bean.Visit;
 import pl.edu.pk.bean.enums.UserType;
 import pl.edu.pk.bean.enums.VisitType;
 import pl.edu.pk.service.VisitService;
+import pl.edu.pk.utils.PotentialVisitUtil;
 import pl.edu.pk.utils.SessionUtil;
 
 @Controller
@@ -30,6 +31,9 @@ public class VisitController implements InitializingBean{
 	
 	@Autowired
 	VisitService visitService;
+	
+	@Autowired
+	PotentialVisitUtil potentialVisitUtil;
 	
 	User user;
 	
@@ -77,7 +81,8 @@ public class VisitController implements InitializingBean{
     }
     
     @RequestMapping(value = "/newvisit", method = RequestMethod.POST)
-    public String newvisit(@ModelAttribute Visit visit){
-    	return "newvisittype";
+    public String newvisit(@ModelAttribute Visit visit, Model model){
+    	model.addAttribute("potenitalVisits", potentialVisitUtil.getPotentialVisitList(visit.getVisitType()));
+    	return "newvisitrest";
     }
 }
