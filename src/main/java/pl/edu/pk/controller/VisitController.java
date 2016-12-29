@@ -1,5 +1,6 @@
 package pl.edu.pk.controller;
 
+import java.util.EnumSet;
 import java.util.List;
 
 import org.springframework.beans.factory.InitializingBean;
@@ -8,12 +9,15 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.WebApplicationContext;
 
 import pl.edu.pk.bean.User;
 import pl.edu.pk.bean.Visit;
 import pl.edu.pk.bean.enums.UserType;
+import pl.edu.pk.bean.enums.VisitType;
 import pl.edu.pk.service.VisitService;
 import pl.edu.pk.utils.SessionUtil;
 
@@ -63,5 +67,17 @@ public class VisitController implements InitializingBean{
     	model.addAttribute("visits", visits);
     	model.addAttribute("title", "Archiwum wizyt");
         return "visit";
+    }
+    
+    @RequestMapping("/newvisit")
+    public String newvisit(Model model){
+    	model.addAttribute("types", EnumSet.allOf(VisitType.class));
+    	model.addAttribute("visit", new Visit());
+        return "newvisittype";
+    }
+    
+    @RequestMapping(value = "/newvisit", method = RequestMethod.POST)
+    public String newvisit(@ModelAttribute Visit visit){
+    	return "newvisittype";
     }
 }

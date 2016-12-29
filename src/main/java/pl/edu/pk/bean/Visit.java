@@ -1,5 +1,6 @@
 package pl.edu.pk.bean;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -35,6 +36,10 @@ public class Visit {
 	private String medicalComment;
 	
 	private Date date;
+	
+    @ManyToOne
+    @JoinColumn(name="room_id", referencedColumnName="roomNumber")
+	private Room room;
 	
 	private boolean active;
 
@@ -78,12 +83,25 @@ public class Visit {
 		this.medicalComment = medicalComment;
 	}
 
-	public Date getDate() {
+	public Date getDateAsDate() {
 		return date;
+	}
+	
+	public String getDate() {
+		SimpleDateFormat dt = new SimpleDateFormat("yyyyy-mm-dd hh:mm:ss"); 
+		return dt.format(date);
 	}
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	
+	public Room getRoom() {
+		return room;
+	}
+
+	public void setRoom(Room room) {
+		this.room = room;
 	}
 
 	public boolean isActive() {

@@ -12,6 +12,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 
 import pl.edu.pk.bean.enums.UserType;
+import pl.edu.pk.bean.enums.VisitType;
 
 @Entity
 @Table(name = "user_table")
@@ -45,6 +46,9 @@ public class User {
 	
 	@Column(nullable = false)
 	private UserType userType;
+	
+	@Column
+	private VisitType specialisation; //Tylko dla lekarza
 
 	public int getUser_id() {
 		return user_id;
