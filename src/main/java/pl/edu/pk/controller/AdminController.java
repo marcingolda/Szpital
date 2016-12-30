@@ -56,6 +56,9 @@ public class AdminController implements InitializingBean {
 	
 	@RequestMapping("/admin/newdoctor")
 	public String newDoctor(Model model){
+		if (!isPermited()){
+			return "error";
+		}
 		model.addAttribute("doctor", new User());
 		model.addAttribute("types", EnumSet.allOf(VisitType.class));
 		return "admin/newdoctor";
@@ -63,6 +66,9 @@ public class AdminController implements InitializingBean {
 	
 	@RequestMapping(value = "/admin/newdoctor", method= RequestMethod.POST)
     public String register(@ModelAttribute("doctor") @Valid User doctor, BindingResult bindingResult, Model model){
+		if (!isPermited()){
+			return "error";
+		}
 		model.addAttribute("types", EnumSet.allOf(VisitType.class));
     	if (bindingResult.hasErrors()){
     		return "admin/newdoctor";
@@ -79,6 +85,9 @@ public class AdminController implements InitializingBean {
 	
 	@RequestMapping("/admin/editdoctor/{id}")
 	public String editDoctor(@PathVariable int id, Model model){
+		if (!isPermited()){
+			return "error";
+		}
 		model.addAttribute("doctor", userService.getById(id));
 		model.addAttribute("types", EnumSet.allOf(VisitType.class));
 		return "admin/newdoctor";
