@@ -8,7 +8,8 @@
 
 <div id="sign-in" class="main">
  <h2>Dodaj doktora</h2>
-    <form:form method="post" modelAttribute="doctor">
+    <form:form method="post" action="/admin/newdoctor" modelAttribute="doctor">
+    	 <form:hidden path="user_id"/>
          <label>Imię</label>
          <form:input type="text" path="first_name"/>
          <form:errors path="first_name" cssClass="error" />

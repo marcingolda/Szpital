@@ -12,7 +12,7 @@
 	
 	<ul>
 		<c:forEach var="doctor" items="${doctors}">
-	   		<li>${doctor.first_name} ${doctor.last_name}  <a href="/editdoctor/${doctor.user_id}">Edytuj</a> <a href="/deletedoctor/${doctor.user_id}">Usuń</a></li>
+	   		<li>${doctor.first_name} ${doctor.last_name}  <a href="/admin/editdoctor/${doctor.user_id}">Edytuj</a> <a href="/admin/deletedoctor/${doctor.user_id}">Usuń</a></li>
 	   	</c:forEach>
    	</ul>
 </div>

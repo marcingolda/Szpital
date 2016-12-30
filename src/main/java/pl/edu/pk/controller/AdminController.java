@@ -2,7 +2,6 @@ package pl.edu.pk.controller;
 
 import java.util.EnumSet;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.InitializingBean;
@@ -13,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.WebApplicationContext;
@@ -67,7 +67,7 @@ public class AdminController implements InitializingBean {
     	if (bindingResult.hasErrors()){
     		return "admin/newdoctor";
     	}
-    	if (userService.isEmailUnique(doctor.getEmail())) {
+    	if (user.getUser_id() != 0 || userService.isEmailUnique(doctor.getEmail())) {
     		doctor.setUserType(UserType.DOCTOR);
     		userService.save(doctor);
     	} else {
@@ -76,5 +76,12 @@ public class AdminController implements InitializingBean {
     	}
         return "redirect:/admin/doctors";
     }
+	
+	@RequestMapping("/admin/editdoctor/{id}")
+	public String editDoctor(@PathVariable int id, Model model){
+		model.addAttribute("doctor", userService.getById(id));
+		model.addAttribute("types", EnumSet.allOf(VisitType.class));
+		return "admin/newdoctor";
+	}
 
 }
