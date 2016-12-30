@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.WebApplicationContext;
@@ -91,6 +92,27 @@ public class VisitController implements InitializingBean{
     @RequestMapping(value = "/newvisitsend", method = RequestMethod.POST)
     public String newvisitsend(@ModelAttribute VisitForm visitForm, BindingResult result, Model model){
     	visitService.save(potentialVisitUtil.getVisit(potentialVisitUtil.getPotentialVisitList(visitForm.getVisitType()), visitForm, user));
+    	return "redirect:/visit";
+    }
+    
+    @RequestMapping(value = "/editnote/{id}")
+    public String editnote(@PathVariable int id, Model model){
+    	if(user.getUserType() != UserType.DOCTOR){
+    		return "error";
+    	}
+    	Visit visit = visitService.getById(id);
+    	if (visit == null || !visit.getDoctor().equals(user)){
+    		return "error";
+    	}
+    	model.addAttribute("visit", visit);
+    	return "editnote";
+    }
+    
+    @RequestMapping(value = "/editnote/{id}", method=RequestMethod.POST)
+    public String editnote(@ModelAttribute Visit visit){
+    	Visit orgVisit = visitService.getById(visit.getId());
+    	orgVisit.setMedicalComment(visit.getMedicalComment());
+    	visitService.save(orgVisit);
     	return "redirect:/visit";
     }
 }
