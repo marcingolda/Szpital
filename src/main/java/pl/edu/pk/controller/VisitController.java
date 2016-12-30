@@ -115,4 +115,15 @@ public class VisitController implements InitializingBean{
     	visitService.save(orgVisit);
     	return "redirect:/visit";
     }
+    
+    @RequestMapping(value = "/cancelvisit/{id}")
+	public String cancelVisit (@PathVariable int id){
+    	Visit visit = visitService.getById(id);
+    	if (visit.getDoctor().equals(user) || visit.getPatient().equals(user)){
+    		visitService.delete(id);
+    		return "redirect:/visit";
+    	} else {
+    		return "error";
+    	}
+	}
 }
