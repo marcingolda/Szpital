@@ -91,4 +91,15 @@ public class AdminRoomController implements InitializingBean {
 		model.addAttribute("types", EnumSet.allOf(VisitType.class));
 		return "admin/newroom";
 	}
+	
+	@RequestMapping("/admin/deleteroom/{id}")
+	public String deleteDoctor(@PathVariable int id, Model model){
+		if (!isPermited()){
+			return "error";
+		}
+		roomService.delete(id);
+		model.addAttribute("message", "Usunięto gabinet");
+		model.addAttribute("rooms", roomService.getAll());
+		return "admin/rooms";
+	}
 }
