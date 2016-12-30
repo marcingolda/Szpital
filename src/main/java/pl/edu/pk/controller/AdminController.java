@@ -92,5 +92,16 @@ public class AdminController implements InitializingBean {
 		model.addAttribute("types", EnumSet.allOf(VisitType.class));
 		return "admin/newdoctor";
 	}
+	
+	@RequestMapping("/admin/deletedoctor/{id}")
+	public String deleteDoctor(@PathVariable int id, Model model){
+		if (!isPermited()){
+			return "error";
+		}
+		userService.delete(id);
+		model.addAttribute("message", "Usunięto lekarza");
+		model.addAttribute("doctors", userService.getAllDoctors());
+		return "admin/doctors";
+	}
 
 }

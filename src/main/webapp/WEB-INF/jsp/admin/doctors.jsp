@@ -6,6 +6,9 @@
 
 <div id="main">
 	<h1>Lista doktorów</h1>
+	
+	<span class="error">${message}</span>
+	
 	<form action="/admin/newdoctor">
    		<input type="submit" value="Dodaj Lekarza" />
 	</form>
