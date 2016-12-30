@@ -120,7 +120,8 @@ public class VisitController implements InitializingBean{
 	public String cancelVisit (@PathVariable int id){
     	Visit visit = visitService.getById(id);
     	if (visit.getDoctor().equals(user) || visit.getPatient().equals(user)){
-    		visitService.delete(id);
+    		visit.setActive(false);
+    		visitService.save(visit);
     		return "redirect:/visit";
     	} else {
     		return "error";
