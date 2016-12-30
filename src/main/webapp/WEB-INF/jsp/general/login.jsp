@@ -21,7 +21,7 @@ if (user==null){ %>
 	<div id="log">
 		Witaj <%=user.getFirst_name() + " " + user.getLast_name()%>! <br/>
 		<a href="/visit">Zaplanowane wizyty</a><br/>
-		<a href="/newvisit">Umów wizytę</a><br/>
+		<%if (user.getUserType() != UserType.DOCTOR) { %><a href="/newvisit">Umów wizytę</a><br/><%} %>
 		<a href="/oldvisit">Archiwum wizyt</a><br/>
 		<br/><a href="/logout">Wyloguj się</a><br/>
 	</div>
