@@ -21,7 +21,6 @@ import pl.edu.pk.bean.enums.UserType;
 import pl.edu.pk.bean.enums.VisitType;
 import pl.edu.pk.form.VisitForm;
 import pl.edu.pk.service.VisitService;
-import pl.edu.pk.utils.PotentialVisit;
 import pl.edu.pk.utils.PotentialVisitUtil;
 import pl.edu.pk.utils.SessionUtil;
 

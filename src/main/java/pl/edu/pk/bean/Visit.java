@@ -1,6 +1,5 @@
 package pl.edu.pk.bean;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;

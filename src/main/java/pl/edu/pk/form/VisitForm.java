@@ -1,7 +1,6 @@
 package pl.edu.pk.form;
 
 import pl.edu.pk.bean.enums.VisitType;
-import pl.edu.pk.utils.PotentialVisit;
 
 public class VisitForm {
 
