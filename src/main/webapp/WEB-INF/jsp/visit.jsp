@@ -9,7 +9,7 @@
 	<c:forEach var="visit" items="${visits}">
 		<div class="visitDiv">
 			<h3>${visit.id} - ${visit.visitType.description}</h3>
-			<i>${visit.date}</i><br/>
+			<i>${visit.date} Gabinet numer ${visit.room.roomNumber}</i><br/>
 			<b>${visit.doctor.first_name} ${visit.doctor.last_name}</b><br/>
 			${visit.medicalComment}<br/>
 		</div>
