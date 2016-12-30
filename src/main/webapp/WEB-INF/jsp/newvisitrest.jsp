@@ -7,10 +7,9 @@
 
 <div id="main">
 	<h1>Zaplanuj wizytę</h1>
-	<form:form method="post" action="/newvisitsend" modelAttribute="visit">
-			<c:forEach var="visit" items="${potenitalVisits}">
-		   		${visit}
-		   	</c:forEach>
+	<form:form method="post" action="/newvisitsend" modelAttribute="visitForm">
+		<form:hidden path="visitType" />
+		<form:radiobuttons path="potentialVisit" items="${potenitalVisits}"  />
 		<input type="submit" value="Zaplanuj wizytę">
 	</form:form>
 </div>

@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +19,9 @@ import pl.edu.pk.bean.User;
 import pl.edu.pk.bean.Visit;
 import pl.edu.pk.bean.enums.UserType;
 import pl.edu.pk.bean.enums.VisitType;
+import pl.edu.pk.form.VisitForm;
 import pl.edu.pk.service.VisitService;
+import pl.edu.pk.utils.PotentialVisit;
 import pl.edu.pk.utils.PotentialVisitUtil;
 import pl.edu.pk.utils.SessionUtil;
 
@@ -76,13 +79,19 @@ public class VisitController implements InitializingBean{
     @RequestMapping("/newvisit")
     public String newvisit(Model model){
     	model.addAttribute("types", EnumSet.allOf(VisitType.class));
-    	model.addAttribute("visit", new Visit());
+    	model.addAttribute("visitForm", new VisitForm());
         return "newvisittype";
     }
     
     @RequestMapping(value = "/newvisit", method = RequestMethod.POST)
-    public String newvisit(@ModelAttribute Visit visit, Model model){
-    	model.addAttribute("potenitalVisits", potentialVisitUtil.getPotentialVisitList(visit.getVisitType()));
+    public String newvisit(@ModelAttribute VisitForm visitForm, Model model){
+    	model.addAttribute("potenitalVisits", potentialVisitUtil.getPotentialVisitList(visitForm.getVisitType()));
     	return "newvisitrest";
+    }
+    
+    @RequestMapping(value = "/newvisitsend", method = RequestMethod.POST)
+    public String newvisitsend(@ModelAttribute VisitForm visitForm, BindingResult result, Model model){
+    	visitService.save(potentialVisitUtil.getVisit(potentialVisitUtil.getPotentialVisitList(visitForm.getVisitType()), visitForm, user));
+    	return "redirect:/visit";
     }
 }

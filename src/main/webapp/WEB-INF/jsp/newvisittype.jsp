@@ -7,7 +7,7 @@
 
 <div id="main">
 	<h1>Zaplanuj wizytę</h1>
-	<form:form method="post" action="/newvisit" modelAttribute="visit">
+	<form:form method="post" action="/newvisit" modelAttribute="visitForm">
 		Typ wizyty: 
 		<form:select path="visitType">
 			<c:forEach var="type" items="${types}">

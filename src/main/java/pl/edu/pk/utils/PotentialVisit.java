@@ -14,6 +14,10 @@ public class PotentialVisit {
 	private User doctor;
 	private Room room;
 	
+	public PotentialVisit(){
+		
+	}
+	
 	public PotentialVisit(LocalDateTime date, User doctor, Room room) {
 		super();
 		this.date = date;

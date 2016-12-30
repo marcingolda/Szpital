@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import pl.edu.pk.bean.enums.VisitType;
+import pl.edu.pk.utils.DataTimeUtil;
 
 @Entity
 @Table(name = "visit")
@@ -88,8 +89,7 @@ public class Visit {
 	}
 	
 	public String getDate() {
-		SimpleDateFormat dt = new SimpleDateFormat("yyyyy-mm-dd hh:mm:ss"); 
-		return dt.format(date);
+		return DataTimeUtil.getString(date);
 	}
 
 	public void setDate(LocalDateTime date) {

@@ -14,6 +14,7 @@ import pl.edu.pk.bean.Room;
 import pl.edu.pk.bean.User;
 import pl.edu.pk.bean.Visit;
 import pl.edu.pk.bean.enums.VisitType;
+import pl.edu.pk.form.VisitForm;
 import pl.edu.pk.service.RoomService;
 import pl.edu.pk.service.UserService;
 import pl.edu.pk.service.VisitService;
@@ -88,5 +89,17 @@ public class PotentialVisitUtil {
 			}
 		}
 		return true;
+	}
+	
+	public Visit getVisit(List<PotentialVisit> potentialVisits, VisitForm visitForm, User patient){
+		Visit visit = new Visit();
+		PotentialVisit potentialVisit = potentialVisits.get(visitForm.getPotentialVisit());
+		visit.setDate(potentialVisit.getDate());
+		visit.setDoctor(potentialVisit.getDoctor());
+		visit.setRoom(potentialVisit.getRoom());
+		visit.setActive(true);
+		visit.setVisitType(visitForm.getVisitType());
+		visit.setPatient(patient);
+		return visit;
 	}
 }
