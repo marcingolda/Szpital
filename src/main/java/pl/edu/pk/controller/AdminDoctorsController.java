@@ -25,7 +25,7 @@ import pl.edu.pk.utils.SessionUtil;
 
 @Controller
 @Scope(value=WebApplicationContext.SCOPE_REQUEST, proxyMode=ScopedProxyMode.TARGET_CLASS)
-public class AdminController implements InitializingBean {
+public class AdminDoctorsController implements InitializingBean {
 	
 	@Autowired
 	SessionUtil session;
@@ -73,7 +73,7 @@ public class AdminController implements InitializingBean {
     	if (bindingResult.hasErrors()){
     		return "admin/newdoctor";
     	}
-    	if (user.getUser_id() != 0 || userService.isEmailUnique(doctor.getEmail())) {
+    	if (doctor.getUser_id() != 0 || userService.isEmailUnique(doctor.getEmail())) {
     		doctor.setUserType(UserType.DOCTOR);
     		userService.save(doctor);
     	} else {

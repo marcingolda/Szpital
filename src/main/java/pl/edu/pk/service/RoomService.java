@@ -42,4 +42,8 @@ public class RoomService implements Crud<Room> {
 				.collect(Collectors.toList());
 	}
 
+	public boolean isNumberUnique(int roomNumber) {
+		return !getAll().stream().filter(r -> r.getRoomNumber()==roomNumber).findFirst().isPresent();
+	}
+
 }
