@@ -15,7 +15,7 @@
 	
 	<ul>
 		<c:forEach var="room" items="${rooms}">
-	   		<li>${room.roomNumber} - ${room.roomType.description} <a href="/admin/editroom/${roomNumber}">Edytuj</a> <a href="/admin/deleteroom/${roomNumber}">Usuń</a></li>
+	   		<li>${room.roomNumber} - ${room.roomType.description} <a href="/admin/editroom/${room.roomNumber}">Edytuj</a> <a href="/admin/deleteroom/${room.roomNumber}">Usuń</a></li>
 	   	</c:forEach>
    	</ul>
 </div>

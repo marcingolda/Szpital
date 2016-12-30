@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -79,5 +80,15 @@ public class AdminRoomController implements InitializingBean {
     		return "admin/newdoctor";
     	}
         return "redirect:/admin/rooms";
+	}
+	
+	@RequestMapping("/admin/editroom/{id}")
+	public String editRoom(@PathVariable int id, Model model){
+		if (!isPermited()){
+			return "error";
+		}
+		model.addAttribute("room", roomService.getById(id));
+		model.addAttribute("types", EnumSet.allOf(VisitType.class));
+		return "admin/newroom";
 	}
 }
