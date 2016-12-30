@@ -10,6 +10,9 @@
 	<form:form method="post" action="/newvisitsend" modelAttribute="visitForm">
 		<form:hidden path="visitType" />
 		<form:radiobuttons path="potentialVisit" items="${potenitalVisits}"  />
+	   	<c:if test="${empty potenitalVisits}">
+		   		Brak dostępnych terminów
+	   	</c:if>
 		<input type="submit" value="Zaplanuj wizytę">
 	</form:form>
 </div>

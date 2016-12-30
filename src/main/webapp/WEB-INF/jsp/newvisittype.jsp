@@ -13,9 +13,6 @@
 			<c:forEach var="type" items="${types}">
 		   		<form:option value="${type}" label="${type.description}"/>
 		   	</c:forEach>
-		   	<c:if test="${empty myObject.featuresList}">
-		   		Brak dostępnych terminów
-		   	</c:if>
 		</form:select>
 		<input type="submit" value="wybierz">
 	</form:form>
