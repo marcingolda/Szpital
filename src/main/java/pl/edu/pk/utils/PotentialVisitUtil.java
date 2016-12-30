@@ -73,6 +73,7 @@ public class PotentialVisitUtil {
 				dates.add(LocalDateTime.of(nowDate, nowTime));
 				nowTime = nowTime.plusMinutes(30);
 			}
+			nowTime =  startTime;
 			nowDate = nowDate.plusDays(1);
 		}
 		return dates;
