@@ -2,9 +2,8 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="general/header.jsp" />
 
-<div class="col-xs-12 col-md-8" id="main">
-	<h1>O NAS</h1>
-	Do uzupełnienia
+<div class="col-xs-12 col-md-8 w3-round-xlarge" id="main">
+Do uzupełnienia
 </div>
 
 <jsp:include page="general/login.jsp" />

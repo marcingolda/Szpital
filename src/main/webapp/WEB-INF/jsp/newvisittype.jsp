@@ -5,7 +5,7 @@
 	
 <jsp:include page="general/header.jsp" />
 
-<div class="col-xs-12 col-md-8" id="main">
+<div class="col-xs-12 col-md-8 w3-round-xlarge" id="main">
 	<h1>Zaplanuj wizytę</h1>
 	<form:form method="post" action="/newvisit" modelAttribute="visitForm">
 		Typ wizyty: 

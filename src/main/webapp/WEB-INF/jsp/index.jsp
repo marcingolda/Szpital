@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="general/header.jsp" />
 
-<div class="col-xs-12 col-md-8" id="main">
+<div class="col-xs-12 col-md-8 w3-round-xlarge" id="main">
 	<h1>Aktualności</h1>
 	<h4>Aktualność 1</h4>
 	<p>Praesent rutrum et augue vitae vehicula. Vestibulum ante ipsum

@@ -4,7 +4,7 @@
 	
 <jsp:include page="general/header.jsp" />
 
-<div class="col-xs-12 col-md-8" id="main">
+<div class="col-xs-12 col-md-8 w3-round-xlarge" id="main">
 	<h1>Edytuj notatkę</h1>
 	<form:form method="post" action="/editnote/${visit.id}" modelAttribute="visit">
 		${visit.patient.first_name} ${visit.patient.first_name}<br/>

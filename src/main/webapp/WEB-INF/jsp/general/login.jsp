@@ -5,13 +5,14 @@
 <%@ page import="pl.edu.pk.bean.enums.UserType" %>
 
 <%User user = (User) session.getAttribute("user");%>
-<div class="col-xs-6 col-md-4" id="log">
+<div class="col-xs-6 col-md-4 w3-round-xlarge" id="log">
+	<h6>
+	<div>
 	<%if (user==null){ %>
 			<form:form method="post" action="login" modelAttribute="loginForm">
 				Adres e-mail <form:input type="email" path="email" placeholder="adres@email.com"/> 
 				Hasło <form:input type="password" path="password" placeholder="Hasło"/>
-		
-				<button type="submit">Zaloguj</button>
+				<button type="submit" class="btn btn-primary">Zaloguj</button>
 				<label class="error">${loginMessage}</label>
 				<input type="checkbox" checked="checked">Zapamiętaj mnie <br/>
 			</form:form>
@@ -27,4 +28,6 @@
 			<a href="/oldvisit">Archiwum wizyt</a><br/>
 			<br/><a href="/logout">Wyloguj się</a><br/>
 	<%} %>
+	</div>
+	</h6>
 </div>

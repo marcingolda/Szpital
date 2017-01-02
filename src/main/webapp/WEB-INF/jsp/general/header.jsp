@@ -12,18 +12,21 @@
 <link href="${pageContext.request.contextPath}/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Bootstrap theme -->
 <link href="${pageContext.request.contextPath}/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet">
+<!-- W3 theme -->
+<link href="${pageContext.request.contextPath}/css/w3.css" rel="stylesheet">
 </head>
 <body>
+<%String url = request.getRequestURI();%>
 	<div id="logo">
 		<img src="<c:url value="${pageContext.request.contextPath}/images/logo.png"/>">
 	</div>
 	<div class="container">
 		<h3>
 			<ul class="nav nav-pills" role="tablist" >
-			        <li role="presentation" class="active"><a href="/">Strona główna</a></li>
-			        <li role="presentation"><a href="about">O nas</a></li>
-			        <li role="presentation"><a href="offer">Oferta</a></li>
-			        <li role="presentation"><a href="contact">Kontakt</a></li>
+			        <li role="presentation" <%if(!url.contains("about")&&!url.contains("offer")&&!url.contains("contact")){%>class="active"<%}%>><a href="/">Strona główna</a></li>
+			        <li role="presentation" <%if(url.contains("about")){%>class="active"<%}%>><a href="about">O nas</a></li>
+			        <li role="presentation" <%if(url.contains("offer")){%>class="active"<%}%>><a href="offer">Oferta</a></li>
+			        <li role="presentation" <%if(url.contains("contact")){%>class="active"<%}%>><a href="contact">Kontakt</a></li>
 			</ul>
 		</h3>
 	</div>
