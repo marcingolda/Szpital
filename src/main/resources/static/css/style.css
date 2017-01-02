@@ -14,10 +14,6 @@ body {
     margin:auto;
 }
 
-#nav{
-    background: #19870a;
-}
-
 #nav ul{
     list-style: none;
     margin: 0;
@@ -88,9 +84,10 @@ form button{
 }
 
 #footer{
-    background: #19870a;
-    margin-top: -16px;
-
+    background: #0000a0;
+    color: white;
+    height: 50px;
+	padding: -50px;
 }
 
 #footer p{
@@ -141,7 +138,7 @@ label {
 	font-family: Helvetica;
 	width: 400px;
 	margin: 10px auto;
-	border: 10px double #19870a;
+	border: 10px double #0000ff;
 	padding: 20px;
 }
 

@@ -8,19 +8,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Szpital</title>
 <link rel="stylesheet" href='<c:url value="${pageContext.request.contextPath}/css/style.css"/>'>
+<!-- Bootstrap core CSS -->
+<link href="${pageContext.request.contextPath}/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap theme -->
+<link href="${pageContext.request.contextPath}/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <body>
 	<div id="logo">
-		<img src="<c:url value="${pageContext.request.contextPath}/images/logo.jpg"/>">
+		<img src="<c:url value="${pageContext.request.contextPath}/images/logo.png"/>">
+	</div>
+	<div class="container">
+		<h3>
+			<ul class="nav nav-pills" role="tablist" >
+			        <li role="presentation" class="active"><a href="/">Strona główna</a></li>
+			        <li role="presentation"><a href="about">O nas</a></li>
+			        <li role="presentation"><a href="offer">Oferta</a></li>
+			        <li role="presentation"><a href="contact">Kontakt</a></li>
+			</ul>
+		</h3>
 	</div>
 
-	<div id="nav">
-		<ul>
-			<li><a href="/">STRONA GŁÓWNA</a></li>
-			<li><a href="about">O NAS</a></li>
-			<li><a href="offer">OFERTA</a></li>
-			<li><a href="contact">KONTAKT</a></li>
-		</ul>
-	</div>
-
-	<div id="wrap">
+	<div class="row" id="wrap">

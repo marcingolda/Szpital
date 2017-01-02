@@ -5,7 +5,7 @@
 <%@ page import="pl.edu.pk.bean.enums.UserType" %>
 
 <%User user = (User) session.getAttribute("user");%>
-<div id="log">
+<div class="col-xs-6 col-md-4" id="log">
 	<%if (user==null){ %>
 			<form:form method="post" action="login" modelAttribute="loginForm">
 				Adres e-mail <form:input type="email" path="email" placeholder="adres@email.com"/> 

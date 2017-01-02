@@ -7,7 +7,7 @@
 
 <jsp:include page="general/header.jsp" />
 
-<div id="main">
+<div class="col-xs-12 col-md-8" id="main">
 	<h1>${title}</h1>
 	<c:forEach var="visit" items="${visits}">
 		<div class="visitDiv">

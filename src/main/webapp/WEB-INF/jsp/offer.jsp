@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="general/header.jsp" />
 
-<div id="main">
+<div class="col-xs-12 col-md-8" id="main">
 	<h1>OFERTA</h1>
 	Do uzupełnienia
 </div>
