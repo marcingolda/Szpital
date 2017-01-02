@@ -6,7 +6,7 @@
 	
 <jsp:include page="../general/header.jsp" />
 
-<div id="sign-in" class="main">
+<div id="sign-in" class="main col-xs-12 col-md-8 w3-round-xlarge">
  <h2>Dodaj pokój</h2>
     <form:form method="post" action="/admin/newroom" modelAttribute="room">
          <label>Numer</label>

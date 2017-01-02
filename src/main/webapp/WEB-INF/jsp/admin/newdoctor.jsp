@@ -6,7 +6,7 @@
 	
 <jsp:include page="../general/header.jsp" />
 
-<div id="sign-in" class="main">
+<div id="sign-in" class="main col-xs-12 col-md-8 w3-round-xlarge">
  <h2>Dodaj doktora</h2>
     <form:form method="post" action="/admin/newdoctor" modelAttribute="doctor">
     	 <form:hidden path="user_id"/>

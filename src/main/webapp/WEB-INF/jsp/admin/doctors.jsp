@@ -4,20 +4,29 @@
 	
 <jsp:include page="../general/header.jsp" />
 
-<div id="main">
-	<h1>Lista doktorów</h1>
+<div class="col-xs-12 col-md-8 w3-round-xlarge" id="main">
+	<h1><b>Lista doktorów</b></h1>
 	
 	<span class="error">${message}</span>
 	
 	<form action="/admin/newdoctor">
-   		<input type="submit" value="Dodaj Lekarza" />
+   		<input type="submit" value="Dodaj Lekarza" class="w3-btn-block w3-blue" />
 	</form>
-	
-	<ul>
-		<c:forEach var="doctor" items="${doctors}">
-	   		<li>${doctor.first_name} ${doctor.last_name}  <a href="/admin/editdoctor/${doctor.user_id}">Edytuj</a> <a href="/admin/deletedoctor/${doctor.user_id}">Usuń</a></li>
-	   	</c:forEach>
-   	</ul>
+
+   	<table class="w3-table">
+    <tr class="w3-blue">
+      <th>Imię</th>
+      <th>Nazwisko</th>
+      <th>Możliwe działania</th>
+    </tr>
+   	<c:forEach var="doctor" items="${doctors}">
+   		<tr>
+	      <td>${doctor.first_name}</td>
+	      <td>${doctor.last_name}</td>
+	      <td><a href="/admin/editdoctor/${doctor.user_id}">Edytuj</a> <a href="/admin/deletedoctor/${doctor.user_id}">Usuń</a></td>
+    	</tr>
+   	</c:forEach>
+  </table>
 </div>
 
 <jsp:include page="../general/login.jsp" />

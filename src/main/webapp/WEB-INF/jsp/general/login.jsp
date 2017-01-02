@@ -34,11 +34,12 @@
 			<a href=/admin/rooms>Zarządzaj gabinetami</a><br/>
 			<br/><a href="/logout">Wyloguj się</a><br/>
 	<%} else { %>
-			Witaj <%=user.getFirst_name() + " " + user.getLast_name()%>! <br/>
-			<a href="/visit">Zaplanowane wizyty</a><br/>
-			<%if (user.getUserType() != UserType.DOCTOR) { %><a href="/newvisit">Umów wizytę</a><br/><%} %>
-			<a href="/oldvisit">Archiwum wizyt</a><br/>
-			<br/><a href="/logout">Wyloguj się</a><br/>
+			<p><b>Witaj <%=user.getFirst_name() + " " + user.getLast_name()%>!</b></p>
+			<p><%if (user.getUserType() != UserType.DOCTOR) { %><a href="/newvisit">Umów wizytę</a><br/><%} %></p>
+			<p><a href="/visit">Zaplanowane wizyty</a><br/></p>
+			<p><a href="/oldvisit">Archiwum wizyt</a><br/></p>
+			<p><a href="/logout">Wyloguj się</a></p>
+			
 	<%} %>
 	</div>
 	</h6>
