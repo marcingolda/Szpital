@@ -10,11 +10,23 @@
 	<div>
 	<%if (user==null){ %>
 			<form:form method="post" action="login" modelAttribute="loginForm">
-				Adres e-mail <form:input type="email" path="email" placeholder="adres@email.com"/> 
-				Hasło <form:input type="password" path="password" placeholder="Hasło"/>
-				<button type="submit" class="btn btn-primary">Zaloguj</button>
-				<label class="error">${loginMessage}</label>
-				<input type="checkbox" checked="checked">Zapamiętaj mnie <br/>
+				<p>
+					<label>Adres e-mail:</label>
+					<form:input class="w3-input" type="email" path="email" placeholder="adres@email.com"/> 
+				</p>
+				<p>
+					<label>Hasło:</label>
+					<form:input class="w3-input" type="password" path="password" placeholder="Hasło"/>
+				</p>
+				<p>
+					<button type="submit" class="btn btn-primary">Zaloguj</button>
+				</p>
+				<p>
+					<label class="error">${loginMessage}</label>
+				</p>
+				<p>
+					<input class="w3-check" type="checkbox"><label class="w3-validate">Zapamiętaj mnie</label>
+				</p>	
 			</form:form>
 			Nie masz konta? <a href="register">Zarejestruj się</a>
 	<%} else if (user.getUserType() == UserType.ADMINISTRATOR) { %>
