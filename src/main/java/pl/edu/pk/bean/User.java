@@ -23,11 +23,11 @@ public class User {
 	private int user_id;
 	
 	@NotNull(message="Pole nie może byc puste")
-	@Size(min=2, max=30, message="Imię nie może być krótsze niż 2 znaki i dłóższe niż 30")
+	@Size(min=2, max=30, message="Imię nie może być krótsze niż 2 znaki i dłuższe niż 30")
 	private String first_name;
 	
 	@NotNull(message="Pole nie może byc puste")
-	@Size(min=2, max=30, message="Nazwisko nie może być krótsze niż 2 znaki i dłóższe niż 30")
+	@Size(min=2, max=30, message="Nazwisko nie może być krótsze niż 2 znaki i dłuższe niż 30")
 	private String last_name;
 	
 	@NotNull(message="Pole nie może byc puste")
@@ -37,7 +37,7 @@ public class User {
 	private String email;
 	
 	@NotNull(message="Pole nie może byc puste")
-	@Size(min=2, max=30, message="Hasło nie może być krótsze niż 2 znaki i dłóższe niż 30")
+	@Size(min=2, max=30, message="Hasło nie może być krótsze niż 2 znaki i dłuższe niż 30")
 	private String password;
 	
 	@NotNull
