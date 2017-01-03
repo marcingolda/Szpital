@@ -14,7 +14,7 @@
 		   		<form:option value="${type}" label="${type.description}"/>
 		   	</c:forEach>
 		</form:select>
-		<input type="submit" value="wybierz">
+		<input type="submit" value="Wybierz" class="w3-btn-block w3-blue">
 	</form:form>
 </div>
 

@@ -13,7 +13,7 @@
 	   	<c:if test="${empty potenitalVisits}">
 		   		Brak dostępnych terminów
 	   	</c:if>
-		<input type="submit" value="Zaplanuj wizytę">
+		<input type="submit" value="Zaplanuj wizytę" class="w3-btn-block w3-blue">
 	</form:form>
 </div>
 

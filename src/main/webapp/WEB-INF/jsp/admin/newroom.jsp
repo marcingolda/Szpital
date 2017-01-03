@@ -20,7 +20,7 @@
 			</c:forEach>
 		</form:select> <br/>
 
-         <input type="submit" value="Dodaj">
+         <input type="submit" value="Dodaj" class="w3-btn-block w3-blue">
      </form:form>
 </div>
 

@@ -33,7 +33,7 @@
          <form:input type="number" path="pesel" name="pesel" pattern="[0-9]{11}" />
          <form:errors path="pesel" cssClass="error" />
 
-         <input type="submit" value="Submit">
+         <input type="submit" value="Utwórz konto" class="w3-btn-block w3-blue">
      </form:form>
 </div>
 
