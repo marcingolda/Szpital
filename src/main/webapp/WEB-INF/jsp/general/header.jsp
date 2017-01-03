@@ -23,10 +23,10 @@
 	<div class="container">
 		<h3>
 			<ul class="nav nav-pills" role="tablist" >
-			        <li role="presentation" <%if(url.contains("index")){%>class="active"<%}%>><a href="/">Strona główna</a></li>
-			        <li role="presentation" <%if(url.contains("about")){%>class="active"<%}%>><a href="about">O nas</a></li>
-			        <li role="presentation" <%if(url.contains("offer")){%>class="active"<%}%>><a href="offer">Oferta</a></li>
-			        <li role="presentation" <%if(url.contains("contact")){%>class="active"<%}%>><a href="contact">Kontakt</a></li>
+			        <li role="presentation" <%if(url.contains("index")){%>class="active"<%}%>><a href="${pageContext.request.contextPath}/">Strona główna</a></li>
+			        <li role="presentation" <%if(url.contains("about")){%>class="active"<%}%>><a href="${pageContext.request.contextPath}/about">O nas</a></li>
+			        <li role="presentation" <%if(url.contains("offer")){%>class="active"<%}%>><a href="${pageContext.request.contextPath}/offer">Oferta</a></li>
+			        <li role="presentation" <%if(url.contains("contact")){%>class="active"<%}%>><a href="${pageContext.request.contextPath}/contact">Kontakt</a></li>
 			</ul>
 		</h3>
 	</div>
