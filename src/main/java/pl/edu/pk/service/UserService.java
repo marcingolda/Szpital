@@ -66,4 +66,17 @@ public class UserService implements Crud <User> {
 		}
 		return specialists;
 	}
+	
+	public void resolveAdminStatus(){
+		if (!getAll().stream().filter(u -> u.getUserType().equals(UserType.ADMINISTRATOR)).findFirst().isPresent()){
+			User admin = new User();
+			admin.setFirst_name("Administrator");
+			admin.setLast_name("Administrator");
+			admin.setEmail("admin@test.com");
+			admin.setPesel("00000000000");
+			admin.setPassword("admin");
+			admin.setUserType(UserType.ADMINISTRATOR);
+			save(admin);
+		}
+	}
 }

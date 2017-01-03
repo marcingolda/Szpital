@@ -20,6 +20,7 @@ public class LoginController {
 	
     @RequestMapping(value ="/login", method = RequestMethod.POST)
     public String login(@ModelAttribute("loginForm") LoginForm loginForm, HttpServletRequest request, Model model){
+    	userService.resolveAdminStatus();
     	User user = userService
     			.getAll()
     			.stream()
